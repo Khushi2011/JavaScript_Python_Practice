@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading" class="hello khushi" ondblclick="change()"> Welcome</h1>
+        <div id="myfirst" class="child red good" id="first">child 1
+
+            <ul class="this">
+                <li class="childul">this</li>
+                <li class="childul">is</li>
+                <li class="childul">a</li>
+                <li class="childul">list </li>
+                <b><li class="childul" id="dream">of my dreams</li></b>
+            </ul>
+        </div>
+        <div class="child">child 2</div>
+        <div class="child red">child 3</div>
+        <div class="child">child 4</div>
+        <form action="none.html" method="post">
+            <a href="//codewithharry.com">Go to Code With Harry</a>
+            <br>
+            <br>
+            Search this website: <input type="text" name="Hello" id="">
+            <input type="button" value="submit" id="btn">
+        </form>
+    </div>
+    <br>
+    <div class="no">this is a dummy div1</div>
+    <div class="no">this is a dummy div2</div>
+    <div class="no">this is a dummy div3</div>
+    
+    <script>
+
+        let element=document.getElementById('dream').addEventListener('dblclick',function(e){
+            var word=prompt("Enter a word for replacement");
+            e.target.innerText=word;
+            localStorage.setItem('replace','word');
+        });
+
+        function blur() {
+            document.body.classList.add('paused');
+            log.textContent='lost';
+        }
+
+        let element1=document.getElementById('dream').addEventListener('mouseleave',function(){
+           document.addEventListener('focus',blur);
+        });
+    </script>
+
+</body>
+</html>
