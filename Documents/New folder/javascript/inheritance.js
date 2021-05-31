@@ -1,0 +1,1 @@
+console.log('This file for prototype Inheritance');
