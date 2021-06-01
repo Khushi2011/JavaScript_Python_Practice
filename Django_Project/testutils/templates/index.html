@@ -7,7 +7,11 @@
     <title>Index File</title>
 </head>
 <body>
-   Hello,This is my first  Django app<br>
-   {{name1}} is of age {{age}} and her hobby is {{hobby}}
+   <h1>Welcome to the text analyzer. Enter your text below</h1>
+   <form action='/analyze' method='get'>
+       <textarea name='text' style='margin: 0px; width: 721px; height: 93px;'></textarea><br>
+   
+       <input type="checkbox" name="removepunc"> Remove Punctuations<br>
+       <button type='submit'> Analyze Text</button>
 </body>
 </html>

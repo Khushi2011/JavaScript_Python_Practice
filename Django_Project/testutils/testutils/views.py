@@ -9,24 +9,30 @@ def name(request):
 #     return HttpResponse("<h1>my age is 20</h1>")
 
 # def displayFiles(request):
-#     fo=open(r"F:\vacationStudy2021\Django_Project\testutils\testutils\demo.txt")
+#     fo=open("demo.txt")
 #     for x in fo:
 #         f1=fo.readlines()
 #         return HttpResponse(f1)
-def removepunc(request):
-    return HttpResponse("remove punc")
+    
+def analyze(request):
+    #Get the text
+    djtext = request.GET.get('text', 'default')
 
-def capfirst(request):
-    return HttpResponse("capitalize first")
+    # Check checkbox values
+    removepunc = request.GET.get('removepunc', 'off')
+    fullcaps = request.GET.get('fullcaps', 'off')
+    newlineremover = request.GET.get('newlineremover', 'off')
+    extraspaceremover = request.GET.get('extraspaceremover', 'off')
 
-def newlineremove(request):
-    return HttpResponse("capitalize first")
+    #Check which checkbox is on
+    if removepunc == "on":
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        analyzed = ""
+        for char in djtext:
+            if char not in punctuations:
+                analyzed = analyzed + char
+        params = {'purpose':'Removed Punctuations', 'analyzed_text': analyzed}
+        return render(request, 'analyze.html', params)
 
-
-def spaceremove(request):
-    return HttpResponse("space remover")
-
-def charcount(request):
-    return HttpResponse("charcount ")
-        
-
+    else:
+        return HttpResponse("Error")
