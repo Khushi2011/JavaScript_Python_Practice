@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',views.name,name="name"),
+    # path('about/',views.about,name="about"),#here about/ will append at the end of the url.
+    # path('displayFiles/',views.displayFiles, name="display")
+    path('removepunc', views.removepunc, name='rempun'),
+    path('capitalizefirst', views.capfirst, name='capfirst'),
+    path('newlineremove', views.newlineremove, name='newlineremove'),
+    path('spaceremove', views.spaceremove, name='spaceremove'),
+    path('charcount', views.charcount, name='charcount'),
 ]
